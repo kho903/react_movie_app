@@ -1,15 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class App extends React.Component {
   state = {
     count: 0
   };
   add = () => {
-    console.log("add");
+    this.setState(current => ({ count: current.count + 1 }));
+    // state를 set할 때 react에서 외부의 상태에 의존하지 않는
+    // 가장 좋은 방법
   };
   minus = () => {
-    console.log("minus");
+    this.setState(current => ({ count: current.count - 1 }));
   };
   render() {
     return (
